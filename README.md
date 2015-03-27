@@ -1,16 +1,32 @@
 fucking-shakespeare
-==================
+===================
 
-This module is for something or other. For example:
-
-    code and what not
-
-Etc.!
+Shakespeare enhancement bot.
 
 Installation
 ------------
 
-    npm install fucking-shakespeare
+Clone this repo.
+
+    npm install
+
+Then, create a config.js file in the project root that contains your Twitter API keys and your Tumblr API keys. Example:
+
+    module.exports = {
+      twitter: {
+        consumer_key: 'asdfkljqwerjasdfalpsdfjas',
+        consumer_secret: 'asdfasdjfbkjqwhbefubvskjhfbgasdjfhgaksjdhfgaksdxvc',
+        access_token: '9999999999-zxcvkljhpoiuqwerkjhmnb,mnzxcvasdklfhwer',
+        access_token_secret: 'opoijkljsadfbzxcnvkmokwertlknfgmoskdfgossodrh'
+      },
+      tumblr: {
+        consumerKey: 'asdfkljqwerjasdfalpsdfjas',
+        consumerSecret: 'asdfasdjfbkjqwhbefubvskjhfbgasdjfhgaksjdhfgaksdxvc',
+        accessToken: 'zxcvkljhpoiuqwerkjhmnb',
+        accessSecret: 'opoijkljsadfbzxcnvkmokwertlknfgmoskdfgossodrh',
+        blog: 'some-tumblr.tumblr.com'
+      }
+    };
 
 Usage
 -----

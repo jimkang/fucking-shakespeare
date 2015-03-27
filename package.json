@@ -1,8 +1,8 @@
 {
   "name": "fucking-shakespeare",
   "version": "1.0.0",
-  "description": "Does some cool things.",
-  "main": "index.js",
+  "description": "Shakespeare enhancement bot.",
+  "main": "fuckshakesup.js",
   "scripts": {
     "test": "make test"
   },
@@ -23,7 +23,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "conform-async": "^1.1.1",
-    "fuck-shit-up": "^1.0.3",
+    "fuck-shit-up": "^1.0.4",
     "jsonfile": "^2.0.0",
     "line-chomper": "^0.4.5",
     "lodash": "^3.6.0",

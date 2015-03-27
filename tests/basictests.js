@@ -6,7 +6,7 @@ test('Integration test', function integration(t) {
 
   fuckShakesUp.run(
     {
-      maxNumberOfLines: 3
+      maxNumberOfLines: 4
     },
     checkResult
   );
