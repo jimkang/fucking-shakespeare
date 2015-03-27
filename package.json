@@ -30,6 +30,7 @@
     "probable": "^1.4.0",
     "queue-async": "^1.0.7",
     "tumblrwks": "^0.2.0",
+    "twit": "^1.1.20",
     "wordpos": "^0.1.15"
   }
 }

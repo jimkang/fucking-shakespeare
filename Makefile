@@ -19,3 +19,6 @@ template-offsets:
 
 run-tumblr:
 	node tools/post-to-tumblr.js
+
+run-twitter:
+	node tools/post-to-twitter.js
