@@ -60,12 +60,9 @@ function checkLines(error, lines, done) {
   }
   else if (lines.length < 1 || lines.every(lineIsNoGood)) {
     console.log('Lines were bad. Trying again.', lines);
-        debugger;
-
     callBackOnNextTick(findLines, done);
   }
   else {
-    console.log('Good lines:', lines);
     done(null, lines);
   }
 }
