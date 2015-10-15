@@ -22,3 +22,6 @@ run-tumblr:
 
 run-twitter:
 	node tools/post-to-twitter.js
+
+pushall:
+	git push origin master && git push server master
