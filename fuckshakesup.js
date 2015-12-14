@@ -5,7 +5,8 @@ var probable = require('probable');
 var shakesnippet = require('shakesnippet');
 
 var fuckShitUp = createFuckShitUp({
-  probable: probable
+  probable: probable,
+  useAlternativeModifiers: probable.roll(3) > 0 // 2/3 chance
 });
 
 var maxNumberOfLines = 4;

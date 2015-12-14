@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "async": "^0.9.0",
-    "fuck-shit-up": "^1.0.4",
+    "fuck-shit-up": "^1.1.0",
     "probable": "^1.4.0",
     "queue-async": "^1.0.7",
     "shakesnippet": "^1.0.0",
