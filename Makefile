@@ -1,18 +1,19 @@
 HOMEDIR = $(shell pwd)
-GITDIR = /var/repos/fucking-shakespeare.git
+USER = bot
+SERVER = smidgeo
+SSHCMD = ssh $(USER)@$(SERVER)
+PROJECTNAME = fucking-shakespeare
+APPDIR = /opt/$(PROJECTNAME)
 
 test:
 	node tests/basictests.js
 
-sync-worktree-to-git:
-	git --work-tree=$(HOMEDIR) --git-dir=$(GITDIR) checkout -f
+pushall: sync
+	git push origin master
 
-npm-install:
-	cd $(HOMEDIR)
-	npm install
-	npm prune
-
-post-receive: sync-worktree-to-git npm-install
+sync:
+	rsync -a $(HOMEDIR) $(USER)@$(SERVER):/opt --exclude node_modules/
+	$(SSHCMD) "cd $(APPDIR) && npm install"
 
 template-offsets:
 	node getfilelineoffsets.js data/shakespeare-pg100.txt > data/shakeslineoffsets.json
@@ -22,6 +23,3 @@ run-tumblr:
 
 run-twitter:
 	node tools/post-to-twitter.js
-
-pushall:
-	git push origin master && git push server master
