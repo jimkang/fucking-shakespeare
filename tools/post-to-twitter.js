@@ -6,7 +6,7 @@ var twit = new Twit(config.twitter);
 
 fuckShakesUp.run(
   {
-    maxNumberOfLines: 2
+    maxNumberOfLines: 4
   },
   postResult
 );
