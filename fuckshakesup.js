@@ -29,41 +29,41 @@ function run(opts, done) {
   );
 }
 
-function sampleLines(done) {
-  var lineOffsets = jsonfile.readFileSync(
-    __dirname + '/data/shakeslineoffsets.json'
-  );
+// function sampleLines(done) {
+//   var lineOffsets = jsonfile.readFileSync(
+//     __dirname + '/data/shakeslineoffsets.json'
+//   );
 
-  var numberOfLines = probable.rollDie(maxNumberOfLines);
-  var startingLine = probable.roll(linesInShakespeareFile - numberOfLines);
+//   var numberOfLines = probable.rollDie(maxNumberOfLines);
+//   var startingLine = probable.roll(linesInShakespeareFile - numberOfLines);
 
-  lineChomper.chomp(
-    __dirname + '/data/shakespeare-pg100.txt',
-    {
-      lineOffsets: lineOffsets,
-      fromLine: startingLine,
-      lineCount: numberOfLines
-    },
-    function readDone(error, lines) {
-      if (error) {
-        done(error);
-      }
-      else if (!lines || !Array.isArray(lines) || lines.length < 1) {
-        done(new Error('Could not get valid line for offset ' + 
-          startingLine + ' numberOfLines: ' + numberOfLines
-        ));
-      }
-      else {
-        done(error, lines);
-      }
-    }
-  );  
-}
+//   lineChomper.chomp(
+//     __dirname + '/data/shakespeare-pg100.txt',
+//     {
+//       lineOffsets: lineOffsets,
+//       fromLine: startingLine,
+//       lineCount: numberOfLines
+//     },
+//     function readDone(error, lines) {
+//       if (error) {
+//         done(error);
+//       }
+//       else if (!lines || !Array.isArray(lines) || lines.length < 1) {
+//         done(new Error('Could not get valid line for offset ' + 
+//           startingLine + ' numberOfLines: ' + numberOfLines
+//         ));
+//       }
+//       else {
+//         done(error, lines);
+//       }
+//     }
+//   );  
+// }
 
 function findLines(done) {
   shakesnippet(
     {
-      numberOfLines: probable.rollDie(maxNumberOfLines)
+      numberOfLines: probable.roll(2) === 0 ? maxNumberOfLines : 1
     },
     done
   );
@@ -83,7 +83,12 @@ function fuckUpEachLine(snippet, done) {
 }
 
 function joinLines(lines, done) {
-  done(null, lines.join('\n'));
+  var joined = lines.join('\n');
+  if (joined.indexOf(' ') === -1) {
+    done(new Error('Single word result: ' + joined));
+  } else {
+    done(null, joined);
+  }
 }
 
 function postModifiedText(text) {
