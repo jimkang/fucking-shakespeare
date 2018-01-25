@@ -10,7 +10,7 @@ var fuckShitUp = createFuckShitUp({
 });
 
 var maxNumberOfLines = 4;
-var linesInShakespeareFile = 122645;
+// var linesInShakespeareFile = 122645;
 
 function run(opts, done) {
   if (opts) {
@@ -19,14 +19,7 @@ function run(opts, done) {
     }
   }
 
-  async.waterfall(
-    [
-      findLines,
-      fuckUpEachLine,
-      joinLines
-    ],
-    done
-  );
+  async.waterfall([findLines, fuckUpEachLine, joinLines], done);
 }
 
 // function sampleLines(done) {
@@ -49,7 +42,7 @@ function run(opts, done) {
 //         done(error);
 //       }
 //       else if (!lines || !Array.isArray(lines) || lines.length < 1) {
-//         done(new Error('Could not get valid line for offset ' + 
+//         done(new Error('Could not get valid line for offset ' +
 //           startingLine + ' numberOfLines: ' + numberOfLines
 //         ));
 //       }
@@ -57,7 +50,7 @@ function run(opts, done) {
 //         done(error, lines);
 //       }
 //     }
-//   );  
+//   );
 // }
 
 function findLines(done) {
@@ -90,11 +83,6 @@ function joinLines(lines, done) {
     done(null, joined);
   }
 }
-
-function postModifiedText(text) {
-  console.log(text);
-}
-
 
 module.exports = {
   run: run

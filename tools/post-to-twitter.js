@@ -14,8 +14,7 @@ fuckShakesUp.run(
 function postResult(error, text) {
   if (error) {
     reportDone(error);
-  }
-  else {
+  } else {
     twit.post(
       'statuses/update',
       {
@@ -26,11 +25,10 @@ function postResult(error, text) {
   }
 }
 
-function reportDone(error, data, response) {
+function reportDone(error, data) {
   if (error) {
     console.log('Error while trying to post to Twitter:', error);
-  }
-  else {
+  } else {
     console.log('Twitter post complete:', data.text);
   }
 }

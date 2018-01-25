@@ -23,3 +23,6 @@ run-tumblr:
 
 run-twitter:
 	node tools/post-to-twitter.js
+
+prettier:
+	prettier --single-quote --write "**/*.js"

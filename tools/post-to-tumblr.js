@@ -14,8 +14,7 @@ fuckShakesUp.run(
 function postResult(error, text) {
   if (error) {
     reportDone(error);
-  }
-  else {
+  } else {
     // text = text.replace('\n', '<br /><br />\n');
     text = boldCharacterAttributions(text);
     var postOpts = {
@@ -33,8 +32,7 @@ function boldCharacterAttributions(text) {
 function reportDone(error, json) {
   if (error) {
     console.log('Error while trying to post to Tumblr:', error);
-  }
-  else {
+  } else {
     console.log('Tumblr post complete:', JSON.stringify(json, null, '  '));
   }
 }

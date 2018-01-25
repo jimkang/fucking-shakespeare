@@ -14,7 +14,7 @@ test('Integration test', function integration(t) {
   function checkResult(error, text) {
     t.ok(!error, 'No error occurred.');
     t.equal(typeof text, 'string', 'Returns a string.');
-    t.ok(text.length > 0, 'And it\'s not an empty string.');
+    t.ok(text.length > 0, "And it's not an empty string.");
     console.log(text);
   }
 });
