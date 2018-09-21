@@ -1,6 +1,6 @@
+include config.mk
+
 HOMEDIR = $(shell pwd)
-USER = bot
-SERVER = smidgeo
 SSHCMD = ssh $(USER)@$(SERVER)
 PROJECTNAME = fucking-shakespeare
 APPDIR = /opt/$(PROJECTNAME)
@@ -20,9 +20,6 @@ template-offsets:
 
 run-tumblr:
 	node tools/post-to-tumblr.js
-
-run-twitter:
-	node tools/post-to-twitter.js
 
 prettier:
 	prettier --single-quote --write "**/*.js"
