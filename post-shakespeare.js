@@ -27,14 +27,6 @@ function postToTargets(text, done) {
         {
           type: 'noteTaker',
           config: config.noteTaker
-        },
-        {
-          type: 'mastodon',
-          config: config.mastodon
-        },
-        {
-          type: 'twitter',
-          config: config.twitter
         }
       ]
     },
@@ -42,7 +34,7 @@ function postToTargets(text, done) {
   );
 }
 
-function reportDone(error, data) {
+function reportDone(error) {
   if (error) {
     console.log('Error while trying to post:', error);
   } else {
