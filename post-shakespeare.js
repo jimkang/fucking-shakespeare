@@ -1,7 +1,15 @@
+/* global process */
+
 var fuckShakesUp = require('./fuckshakesup');
 var config = require('./config');
 var postIt = require('@jimkang/post-it');
 var randomId = require('idmaker').randomId;
+
+var dry = false;
+
+if (process.argv.length > 2) {
+  dry = (process.argv[2] === '--dry');
+}
 
 fuckShakesUp.run(
   {
@@ -14,6 +22,10 @@ function postResult(error, text) {
   if (error) {
     reportDone(error);
   } else {
+    if (dry) {
+      console.log(text);
+      return;
+    }
     postToTargets(text, reportDone);
   }
 }

@@ -5,8 +5,7 @@ var probable = require('probable');
 var shakesnippet = require('shakesnippet');
 
 var fuckShitUp = createFuckShitUp({
-  probable: probable,
-  useAlternativeModifiers: probable.roll(3) > 0 // 2/3 chance
+  probable,
 });
 
 var maxNumberOfLines = 4;
@@ -56,7 +55,7 @@ function run(opts, done) {
 function findLines(done) {
   shakesnippet(
     {
-      numberOfLines: probable.roll(2) === 0 ? maxNumberOfLines : 1
+      numberOfLines: probable.roll(2) === 0 ? maxNumberOfLines : 1,
     },
     done
   );
@@ -85,5 +84,5 @@ function joinLines(lines, done) {
 }
 
 module.exports = {
-  run: run
+  run: run,
 };
